@@ -54,3 +54,12 @@ class MaterialEscolar(Producto):
         if self._marca.lower() == "genérico":
             return self._precio * 0.85
         return self._precio
+
+if __name__ == "__main__":
+    print("\n--- MATERIAL ESCOLAR ---")
+    material1 = MaterialEscolar("M001", "Cuaderno A4", 3.00, 50, "Cuaderno", "Norma")
+    material2 = MaterialEscolar("M002", "Lápices de Colores", 12.00, 30, "Lápices", "Genérico")
+
+    print(f"Material: {material1.nombre}, Precio original: ${material1.precio}")
+    print(f"Precio con descuento: ${material1.aplicar_descuento():.2f}")
+    print(f"Total por 2 unidades: ${material1.calcular_total(2):.2f}")

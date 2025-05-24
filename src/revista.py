@@ -66,3 +66,16 @@ class Revista(Producto):
         if self._periodicidad.lower() == "mensual":
             return self._precio * 0.95
         return self._precio
+
+if __name__ == "__main__":
+    print("\n--- REVISTA ---")
+    revista1 = Revista("R001", "National Geographic", 8.50, 20, "National Geographic Society", 250, "Mensual")
+    revista2 = Revista("R002", "Hola!", 5.00, 15, "Publicaciones de Revistas", 1234, "Semanal")
+
+    print(f"Precio original de revista1: ${revista1.precio}")
+    revista1.precio = -10.00  # Intento de asignar valor inválido
+    print(f"Precio después del intento: ${revista1.precio}")
+
+    print("\nAplicando descuento y cálculo de total para revista1:")
+    print(f"Precio con descuento: ${revista1.aplicar_descuento():.2f}")
+    print(f"Total por 2 unidades: ${revista1.calcular_total(2):.2f}")

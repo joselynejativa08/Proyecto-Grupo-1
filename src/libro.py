@@ -66,3 +66,22 @@ class Libro(Producto):
         if "bolsillo" in self._edicion.lower():
             return self._precio * 0.9
         return self._precio
+
+if __name__ == "__main__":
+    print("\n---LIBRO ---")
+    libro1 = Libro("L001", "Cien años de soledad", 25.00, 10, "Gabriel García Márquez", "Pasta blanda",
+                   "978-3-16-148410-0")
+    libro2 = Libro("L002", "El Señor de los Anillos", 35.00, 5, "J.R.R. Tolkien", "Edición de bolsillo",
+                   "978-0-618-05326-7")
+
+    print(f"Nombre original del libro1: {libro1.nombre}")
+    libro1.nombre = "Cien años de soledad (Edición Aniversario)"
+    print(f"Nuevo nombre del libro1: {libro1.nombre}")
+
+    print(f"Precio original del libro2: {libro2.precio}")
+    libro2.precio = 30.00
+    print(f"Nuevo precio del libro2: {libro2.precio}")
+
+    print("\nAplicando descuento y cálculo de total para libro1:")
+    print(f"Precio con descuento: ${libro1.aplicar_descuento():.2f}")
+    print(f"Total por 2 unidades: ${libro1.calcular_total(2):.2f}")
